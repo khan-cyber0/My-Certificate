@@ -1,0 +1,15 @@
+#!/bin/busybox sh
+/bin/busybox --install -s /bin
+mount -t proc proc /proc
+mount -t sysfs sys /sys
+mount -t devtmpfs dev /dev
+mkdir -p /dev/pts /tmp /run && mount -t devpts devpts /dev/pts
+hostname debos
+clear
+cat /etc/motto
+echo "Yadro: $(uname -r)   |   Yordam: busybox --list"
+echo
+while true; do
+  setsid sh -c 'exec sh </dev/console >/dev/console 2>&1' 
+  echo "shell yopildi, qayta ishga tushirilmoqda..."
+done
