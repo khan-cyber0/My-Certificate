@@ -14,7 +14,7 @@ cp "$B"/kernel/boot/vmlinuz-* "$B/vmlinuz"
 
 # busybox
 mkdir -p "$B/bb"; dpkg-deb -x "$B/debs/busybox-static.deb" "$B/bb"
-cp "$B/bb/bin/busybox" "$B/root/bin/busybox"
+cp "$(find "$B/bb" -name busybox -type f | head -1)" "$B/root/bin/busybox"
 
 cp -r rootfs-overlay/. "$B/root/"
 chmod +x "$B/root/init"

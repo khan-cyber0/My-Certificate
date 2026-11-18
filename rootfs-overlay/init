@@ -10,6 +10,6 @@ cat /etc/motto
 echo "Yadro: $(uname -r)   |   Yordam: busybox --list"
 echo
 while true; do
-  setsid sh -c 'exec sh </dev/console >/dev/console 2>&1' 
+  setsid sh -c 'exec sh -l </dev/console >/dev/console 2>&1' 
   echo "shell yopildi, qayta ishga tushirilmoqda..."
 done
